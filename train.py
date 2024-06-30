@@ -36,11 +36,6 @@ optimizer = torch.optim.Adam([
     dict(params=model.parameters(), lr=0.0001),
 ])
 
-# define learning rate scheduler (not used in this NB)
-lr_scheduler = torch.optim.lr_scheduler.CosineAnnealingWarmRestarts(
-    optimizer, T_0=1, T_mult=2, eta_min=5e-5,
-)
-
 train_epoch = smp.utils.train.TrainEpoch(
     model,
     loss=loss,
